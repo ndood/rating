@@ -3,7 +3,7 @@ package kg.ksucta.domain.user;
 import kg.ksucta.domain.subject.Subject;
 
 import javax.persistence.*;
-import java.util.List;
+import java.util.Set;
 
 @Entity
 @Table(name = "USERSUBJECT")
@@ -22,15 +22,19 @@ public class UserSubject {
     @Column(name = "semesterID")
     private Long semesterID;
 
-    @ManyToMany(fetch = FetchType.EAGER, mappedBy = "user")
-    private List<User> userID;
+    @ManyToMany(fetch = FetchType.EAGER, targetEntity = User.class)
+//    @ManyToMany
+//    @JoinTable(name = "USERSUBJECTUSERID")
+    private Set<User> userID;
 
-    @ManyToMany(fetch = FetchType.EAGER, mappedBy = "subject")
-    private List<Subject> subjectID;
+    @ManyToMany(fetch = FetchType.EAGER, targetEntity = Subject.class)
+//    @ManyToMany
+//    @JoinTable(name = "USERSUBJECTSUNJECTID")
+    private Set<Subject> subjectID;
 
     public UserSubject() { }
 
-    public UserSubject(Long id, Float markSubject, Float markProf, Long semesterID, List<User> userID, List<Subject> subjectID){
+    public UserSubject(Long id, Float markSubject, Float markProf, Long semesterID, Set<User> userID, Set<Subject> subjectID){
         this.id = id;
         this.markProf = markProf;
         this.markSubject = markSubject;
@@ -71,19 +75,19 @@ public class UserSubject {
         this.semesterID = semesterID;
     }
 
-    public List<User> getUserID() {
+    public Set<User> getUserID() {
         return userID;
     }
 
-    public void setUserID(List<User> userID) {
+    public void setUserID(Set<User> userID) {
         this.userID = userID;
     }
 
-    public List<Subject> getSubjectID() {
+    public Set<Subject> getSubjectID() {
         return subjectID;
     }
 
-    public void setSubjectID(List<Subject> subjectID) {
+    public void setSubjectID(Set<Subject> subjectID) {
         this.subjectID = subjectID;
     }
 }
