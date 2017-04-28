@@ -1,5 +1,6 @@
 package kg.ksucta.domain.user;
 
+import kg.ksucta.domain.Group;
 import kg.ksucta.domain.embeddable.Dates;
 import org.hibernate.validator.constraints.Email;
 
@@ -24,6 +25,16 @@ public class User {
 
     @Column(name = "email")
     private String email;
+
+    @Column
+    private String firstName;
+
+    @Column
+    private String lastName;
+
+    @OneToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name="id")
+    Group group;
 
     @Embedded
     private Dates dates;
