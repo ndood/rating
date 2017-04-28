@@ -34,7 +34,7 @@ public class User {
 
     @OneToOne(fetch = FetchType.LAZY)
     @JoinColumn(name="id")
-    Group group;
+    private Group group;
 
     @Embedded
     private Dates dates;
@@ -48,6 +48,17 @@ public class User {
         this.id = id;
         this.username = username;
         this.password = password;
+        this.roles = roles;
+    }
+
+    public User(String username, String password, String email, String firstName,
+                String lastName, Group group, List<UserRole> roles) {
+        this.username = username;
+        this.password = password;
+        this.email = email;
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.group = group;
         this.roles = roles;
     }
 
@@ -99,4 +110,27 @@ public class User {
         this.dates = dates;
     }
 
+    public String getFirstName() {
+        return firstName;
+    }
+
+    public String getLastName() {
+        return lastName;
+    }
+
+    public Group getGroup() {
+        return group;
+    }
+
+    public void setFirstName(String firstName) {
+        this.firstName = firstName;
+    }
+
+    public void setLastName(String lastName) {
+        this.lastName = lastName;
+    }
+
+    public void setGroup(Group group) {
+        this.group = group;
+    }
 }
