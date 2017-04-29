@@ -3,7 +3,7 @@ package kg.ksucta.domain;
 import javax.persistence.*;
 
 @Entity
-@Table(name="GROUP")
+@Table(name="GROUP_")
 public class Group {
     @Id
     @Column(name = "id")
