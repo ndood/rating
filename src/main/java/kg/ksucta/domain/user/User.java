@@ -32,7 +32,7 @@ public class User {
     @Column
     private String lastName;
 
-    @OneToOne(fetch = FetchType.LAZY)
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name="group_id")
     private Group group;
 
