@@ -33,7 +33,7 @@ public class User {
     private String lastName;
 
     @OneToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name="id")
+    @JoinColumn(name="group_id")
     private Group group;
 
     @Embedded
