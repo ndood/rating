@@ -1,12 +1,13 @@
-package kg.ksucta.domain.user;
+package kg.ksucta.domain.mark;
 
 import kg.ksucta.domain.subject.Subject;
+import kg.ksucta.domain.user.User;
 
 import javax.persistence.*;
 
 @Entity
-@Table(name = "USERSUBJECT")
-public class UserSubject {
+@Table(name = "MARK")
+public class Mark {
     @Id
     @Column(name = "id")
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -18,8 +19,8 @@ public class UserSubject {
     @Column(name = "markProf")
     private Float markProf;
 
-    @Column(name = "semesterId")
-    private Long semesterId;
+    @Column(name = "semester")
+    private Long semester;
 
     @OneToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "subjectId")
@@ -29,13 +30,13 @@ public class UserSubject {
     @JoinColumn(name = "userId")
     private User user;
 
-    public UserSubject() { }
+    public Mark() { }
 
-    public UserSubject(Long id, Float markSubject, Float markProf, Long semesterId, User user, Subject subject){
+    public Mark(Long id, Float markSubject, Float markProf, Long semester, User user, Subject subject){
         this.id = id;
         this.markProf = markProf;
         this.markSubject = markSubject;
-        this.semesterId = semesterId;
+        this.semester = semester;
         this.subject = subject;
         this.user = user;
     }
@@ -64,12 +65,12 @@ public class UserSubject {
         this.markProf = markProf;
     }
 
-    public Long getSemesterId() {
-        return semesterId;
+    public Long getSemester() {
+        return semester;
     }
 
-    public void setSemesterId(Long semesterId) {
-        this.semesterId = semesterId;
+    public void setSemester(Long semester) {
+        this.semester = semester;
     }
 
     public Subject getSubject() {
