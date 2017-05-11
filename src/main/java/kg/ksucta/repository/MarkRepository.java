@@ -12,7 +12,9 @@ public interface MarkRepository extends JpaRepository<Mark, Long> {
     List<Mark> findByUserGroup(Group userGroup);
     List<Mark> findBySemesterAndUser(Long semester, User user);
     List<Mark> findByUser(User user);
-    List<Mark> findAll();
+    List<Mark> findByUserGroupCourse(String course);
+
+
 
 
 
