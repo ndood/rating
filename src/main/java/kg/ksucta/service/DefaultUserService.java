@@ -25,4 +25,19 @@ public class DefaultUserService implements UserService {
     public Optional<User> getByEmail(String email) {
         return this.userRepository.findByEmail(email);
     }
+
+    @Override
+    public Optional<User> getByUserName(String username) {
+        return this.userRepository.findByUsername(username);
+    }
+
+    @Override
+    public Optional<User> getByFirstName(String firstName) {
+        return this.userRepository.findByFirstName(firstName);
+    }
+
+    @Override
+    public Optional<User> getByLastName(String lastName) {
+        return this.userRepository.findByLastName(lastName);
+    }
 }

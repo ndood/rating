@@ -23,4 +23,25 @@ public class DefaultUserRepository extends BaseCustomRepository implements Custo
         criteria.add(Restrictions.eq("email", email));
         return (Optional<User>) criteria.uniqueResult();
     }
+
+    @Override
+    public Optional<User> findByUsername(String username) {
+        Criteria criteria = getCriteria();
+        criteria.add(Restrictions.eq("username", username));
+        return (Optional<User>) criteria.uniqueResult();
+    }
+
+    @Override
+    public Optional<User> findByFirstName(String firstName) {
+        Criteria criteria = getCriteria();
+        criteria.add(Restrictions.eq("firstName", firstName));
+        return (Optional<User>) criteria.uniqueResult();
+    }
+
+    @Override
+    public Optional<User> findByLastName(String lastName) {
+        Criteria criteria = getCriteria();
+        criteria.add(Restrictions.eq("lastName", lastName));
+        return (Optional<User>) criteria.uniqueResult();
+    }
 }

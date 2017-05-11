@@ -11,4 +11,7 @@ import java.util.Optional;
 public interface CustomUserRepository {
 
     public Optional<User> findByEmail(String email);
+    public Optional<User> findByUsername(String username);
+    public Optional<User> findByFirstName(String firstName);
+    public Optional<User> findByLastName(String lastName);
 }
