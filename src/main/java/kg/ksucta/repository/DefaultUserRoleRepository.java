@@ -3,9 +3,11 @@ package kg.ksucta.repository;
 import kg.ksucta.domain.user.UserRole;
 import org.hibernate.Criteria;
 import org.hibernate.criterion.Restrictions;
+import org.springframework.stereotype.Repository;
 
 import java.util.Optional;
 
+@Repository
 public class DefaultUserRoleRepository extends BaseCustomRepository implements CustomUserRoleRepository {
 
     public DefaultUserRoleRepository(Class Class) {
