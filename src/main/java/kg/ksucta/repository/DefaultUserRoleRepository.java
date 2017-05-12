@@ -10,7 +10,7 @@ import java.util.Optional;
 @Repository
 public class DefaultUserRoleRepository extends BaseCustomRepository implements CustomUserRoleRepository {
 
-    public DefaultUserRoleRepository(Class Class) {
+    public DefaultUserRoleRepository() {
         super(UserRole.class);
     }
 
