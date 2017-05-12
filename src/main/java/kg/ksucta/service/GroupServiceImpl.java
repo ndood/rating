@@ -8,9 +8,6 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 import java.util.Optional;
 
-/**
- * Created by tokjan on 12.05.2017.
- */
 @Service
 public class GroupServiceImpl implements GroupService {
     private final GroupRepository groupRepository;
