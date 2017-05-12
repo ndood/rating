@@ -4,10 +4,12 @@ import kg.ksucta.domain.Group;
 import kg.ksucta.domain.mark.Mark;
 import kg.ksucta.domain.user.User;
 import kg.ksucta.repository.MarkRepository;
+import org.springframework.stereotype.Service;
 import org.springframework.util.Assert;
 
 import java.util.List;
 
+@Service
 public class MarkServiceImpl implements MarkService{
     private final MarkRepository markRepository;
 
