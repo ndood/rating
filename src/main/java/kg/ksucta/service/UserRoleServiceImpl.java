@@ -1,6 +1,7 @@
 package kg.ksucta.service;
 
 import io.jsonwebtoken.lang.Assert;
+import kg.ksucta.domain.user.Role;
 import kg.ksucta.domain.user.User;
 import kg.ksucta.domain.user.UserRole;
 import kg.ksucta.repository.UserRoleRepository;
@@ -15,8 +16,8 @@ public class UserRoleServiceImpl implements UserRoleService {
     }
 
     @Override
-    public List<UserRole> getByRole(String role) {
-        Assert.hasText(role, "Role can not be empty!");
+    public List<UserRole> getByRole(Role role) {
+        Assert.notNull(role, "Role can not be empty!");
         return userRoleRepository.findByRole(role);
     }
 
@@ -27,9 +28,9 @@ public class UserRoleServiceImpl implements UserRoleService {
     }
 
     @Override
-    public List<UserRole> getByUserAndRole(User user, String role) {
+    public List<UserRole> getByUserAndRole(User user, Role role) {
         Assert.notNull(user, "User can not be empty!");
-        Assert.hasText(role, "Role can not be empty!");
+        Assert.notNull(role, "Role can not be empty!");
         return userRoleRepository.findByUserAndRole(user, role);
     }
 
