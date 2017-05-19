@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.util.Assert;
 
+import java.util.List;
 import java.util.Optional;
 
 @Service
@@ -44,10 +45,10 @@ public class DefaultUserService implements UserService {
     }
 
     @Override
-    public Optional<User> getByFirstNameAndLastName(String firstName, String lastName) {
+    public List<User> getByFirstNameAndLastName(String firstName, String lastName) {
         Assert.hasText(firstName, "FirstName must not be empty!!!");
         Assert.hasText(lastName, "LastName must not be empty!!!");
-        Optional<User> user = userRepository.findByFirstNameAndLastName(firstName, lastName);
+        List<User> user = userRepository.findByFirstNameAndLastName(firstName, lastName);
         return user;
         /*if(user.isPresent()){
             return user;

@@ -7,6 +7,7 @@ import kg.ksucta.repository.MarkRepository;
 import org.springframework.stereotype.Service;
 import org.springframework.util.Assert;
 
+import java.util.List;
 import java.util.Optional;
 
 @Service
@@ -24,7 +25,7 @@ public class MarkServiceImpl implements MarkService{
     }
 
     @Override
-    public Optional<Mark> getBySemesterAndUser(Long semester, User user) {
+    public List<Mark> getBySemesterAndUser(Long semester, User user) {
         Assert.notNull(semester, "Semester must be not null!!!");
         Assert.notNull(user, "User must not be null!!!");
         return markRepository.findBySemesterAndUser(semester, user);
