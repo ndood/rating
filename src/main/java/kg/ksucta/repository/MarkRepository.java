@@ -10,15 +10,15 @@ import java.util.Optional;
 
 public interface MarkRepository extends JpaRepository<Mark, Long> {
 
-    List<Mark> findBySemesterAndUser(Long semester, User user);
-    List<Mark> findByUserGroup(Group userGroup);
-    List<Mark> findByUser(User user);
+
+
+    List<Mark> findByUserGroupGroupname(String groupName);
     List<Mark> findByUserGroupCourse(String course);
 
 
-
-
-
+    List<Mark> findByUser(User user);
+    List<Mark> findByUserGroup(Group userGroup);
+    List<Mark> findBySemesterAndUser(Long semester, User user);
 
 
 

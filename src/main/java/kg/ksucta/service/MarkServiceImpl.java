@@ -42,4 +42,10 @@ public class MarkServiceImpl implements MarkService{
         Assert.hasText(course, "Course must not be empty!!!");
         return markRepository.findByUserGroupCourse(course);
     }
+
+    @Override
+    public List<Mark> getByGroupName(String groupName) {
+        Assert.hasText(groupName, "Group name must not be empty!!!");
+        return markRepository.findByUserGroupGroupname(groupName);
+    }
 }
