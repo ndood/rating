@@ -5,7 +5,6 @@ import kg.ksucta.domain.Group;
 import kg.ksucta.repository.GroupRepository;
 import org.springframework.stereotype.Service;
 
-import java.util.List;
 import java.util.Optional;
 
 @Service
@@ -17,7 +16,7 @@ public class GroupServiceImpl implements GroupService {
     }
 
     @Override
-    public List<Group> getByCourse(String course) {
+    public Optional<Group> getByCourse(String course) {
         Assert.hasText(course, "Course must not be empty!");
         return groupRepository.findByCourse(course);
     }

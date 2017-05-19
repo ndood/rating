@@ -5,10 +5,11 @@ import kg.ksucta.domain.user.User;
 import kg.ksucta.domain.user.UserRole;
 
 import java.util.List;
+import java.util.Optional;
 
 public interface UserRoleService {
-    List<UserRole> getByRole(Role role);
-    List<UserRole> getByUser(User user);
-    List<UserRole> getByUserAndRole(User user, Role role);
+    Optional<UserRole> getByRole(Role role);
+    Optional<UserRole> getByUser(User user);
+    Optional<UserRole> getByUserAndRole(User user, Role role);
     List<UserRole> getAll();
 }

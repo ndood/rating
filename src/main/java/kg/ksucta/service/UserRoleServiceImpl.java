@@ -7,6 +7,7 @@ import kg.ksucta.domain.user.UserRole;
 import kg.ksucta.repository.UserRoleRepository;
 
 import java.util.List;
+import java.util.Optional;
 
 public class UserRoleServiceImpl implements UserRoleService {
     private final UserRoleRepository userRoleRepository;
@@ -16,19 +17,19 @@ public class UserRoleServiceImpl implements UserRoleService {
     }
 
     @Override
-    public List<UserRole> getByRole(Role role) {
+    public Optional<UserRole> getByRole(Role role) {
         Assert.notNull(role, "Role can not be empty!");
         return userRoleRepository.findByRole(role);
     }
 
     @Override
-    public List<UserRole> getByUser(User user) {
+    public Optional<UserRole> getByUser(User user) {
         Assert.notNull(user, "User can not be empty!");
         return userRoleRepository.findByUser(user);
     }
 
     @Override
-    public List<UserRole> getByUserAndRole(User user, Role role) {
+    public Optional<UserRole> getByUserAndRole(User user, Role role) {
         Assert.notNull(user, "User can not be empty!");
         Assert.notNull(role, "Role can not be empty!");
         return userRoleRepository.findByUserAndRole(user, role);

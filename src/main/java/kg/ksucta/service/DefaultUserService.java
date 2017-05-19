@@ -8,8 +8,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.util.Assert;
 
-import javax.persistence.EntityNotFoundException;
-import java.util.List;
 import java.util.Optional;
 
 @Service
@@ -59,13 +57,13 @@ public class DefaultUserService implements UserService {
     }
 
     @Override
-    public List<User> getByGroup(Group group) {
+    public Optional<User> getByGroup(Group group) {
         Assert.notNull(group, "Group must not be null!!!");
         return this.userRepository.findByGroup(group);
     }
 
     @Override
-    public List<User> getByGroup_Course(String course) {
+    public Optional<User> getByGroup_Course(String course) {
         Assert.hasText(course, "Course must not be empty!!!");
         return this.userRepository.findByGroup_Course(course);
     }
