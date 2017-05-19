@@ -1,5 +1,7 @@
 package kg.ksucta.domain.user;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import kg.ksucta.domain.Group;
 import kg.ksucta.domain.embeddable.Dates;
 import org.hibernate.validator.constraints.Email;
@@ -11,6 +13,7 @@ import javax.validation.constraints.NotNull;
 
 @Entity
 @Table(name="USER")
+@JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
 public class User {
     @Id
     @Column(name="id")
@@ -34,6 +37,7 @@ public class User {
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name="group_id")
+    @JsonManagedReference
     private Group group;
 
     @Embedded

@@ -1,9 +1,12 @@
 package kg.ksucta.domain.subject;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 import javax.persistence.*;
 
 @Entity
 @Table(name = "SUBJECT")
+@JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
 public class Subject {
     @Id
     @Column(name = "id")

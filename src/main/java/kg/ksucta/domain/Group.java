@@ -1,5 +1,7 @@
 package kg.ksucta.domain;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import kg.ksucta.domain.user.User;
 
 import javax.persistence.*;
@@ -7,6 +9,7 @@ import java.util.List;
 
 @Entity
 @Table(name="GROUP_")
+@JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
 public class Group {
     @Id
     @Column(name = "id")
@@ -21,6 +24,7 @@ public class Group {
 
     @OneToMany(mappedBy = "group")
     @Column
+    @JsonBackReference
     private List<User> users;
 
     public Group(){}

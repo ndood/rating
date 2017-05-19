@@ -1,5 +1,6 @@
 package kg.ksucta.domain.mark;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import kg.ksucta.domain.subject.Subject;
 import kg.ksucta.domain.user.User;
 
@@ -7,6 +8,7 @@ import javax.persistence.*;
 
 @Entity
 @Table(name = "MARK")
+@JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
 public class Mark {
     @Id
     @Column(name = "id")
@@ -88,4 +90,5 @@ public class Mark {
     public void setUser(User user) {
         this.user = user;
     }
+
 }

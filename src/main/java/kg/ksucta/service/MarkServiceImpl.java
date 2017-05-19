@@ -8,7 +8,6 @@ import org.springframework.stereotype.Service;
 import org.springframework.util.Assert;
 
 import java.util.List;
-import java.util.Optional;
 
 @Service
 public class MarkServiceImpl implements MarkService{
@@ -17,6 +16,7 @@ public class MarkServiceImpl implements MarkService{
     public MarkServiceImpl(MarkRepository markRepository) {
         this.markRepository = markRepository;
     }
+
 
     @Override
     public List<Mark> getByUserGroup(Group userGroup) {
@@ -38,7 +38,7 @@ public class MarkServiceImpl implements MarkService{
     }
 
     @Override
-    public List<Mark> getByUserGroupCourse(String course) {
+    public List<Mark> getByCourse(String course) {
         Assert.hasText(course, "Course must not be empty!!!");
         return markRepository.findByUserGroupCourse(course);
     }

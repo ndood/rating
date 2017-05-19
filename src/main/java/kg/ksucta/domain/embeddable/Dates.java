@@ -1,5 +1,7 @@
 package kg.ksucta.domain.embeddable;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 import javax.persistence.Access;
 import javax.persistence.AccessType;
 import javax.persistence.Column;
@@ -11,6 +13,7 @@ import java.util.Date;
  */
 @Embeddable
 @Access(AccessType.FIELD)
+@JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
 public class Dates {
 
     @Column(name = "changed_date")

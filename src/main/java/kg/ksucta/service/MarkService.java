@@ -11,6 +11,6 @@ public interface MarkService  {
     List<Mark> getByUserGroup(Group userGroup);
     List<Mark> getBySemesterAndUser(Long semester, User user);
     List<Mark> getByUser(User user);
-    List<Mark> getByUserGroupCourse(String course);
+    List<Mark> getByCourse(String course);
     List<Mark> getByGroupName(String groupName);
 }

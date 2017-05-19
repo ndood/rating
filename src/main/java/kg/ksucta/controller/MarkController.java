@@ -1,19 +1,12 @@
 package kg.ksucta.controller;
 
-import kg.ksucta.domain.Group;
+import com.fasterxml.jackson.core.JsonProcessingException;
 import kg.ksucta.domain.mark.Mark;
-import kg.ksucta.domain.user.User;
-import kg.ksucta.service.GroupService;
 import kg.ksucta.service.MarkService;
-import kg.ksucta.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
-import java.util.Optional;
 
 @RestController
 @RequestMapping("/mark")
@@ -22,9 +15,10 @@ public class MarkController {
     MarkService markService;
 
 
-    @RequestMapping(value = "/user/group/course/{course}", method = RequestMethod.GET)
-    public List<Mark> getByCourse(@PathVariable("course") String course){
-        List<Mark> marksByCourse = markService.getByUserGroupCourse(course);
+    @RequestMapping(method = RequestMethod.GET, produces={"application/json"})
+    public List<Mark> getByCourse(@RequestParam("course") String course) throws JsonProcessingException {
+
+        List<Mark> marksByCourse = markService.getByCourse(course);
         return marksByCourse;
     }
 

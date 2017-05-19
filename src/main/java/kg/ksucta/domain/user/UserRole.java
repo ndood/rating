@@ -1,9 +1,12 @@
 package kg.ksucta.domain.user;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 import javax.persistence.*;
 
 @Entity
 @Table(name = "USER_ROLE")
+@JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
 public class        UserRole {
 
     @Id
