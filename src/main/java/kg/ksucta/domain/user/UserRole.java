@@ -1,6 +1,7 @@
 package kg.ksucta.domain.user;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 
 import javax.persistence.*;
 
@@ -16,6 +17,7 @@ public class UserRole {
 
     @ManyToOne
     @JoinColumn(name="user_id")
+    @JsonManagedReference
     private User user;
 
     @Enumerated(EnumType.STRING)

@@ -1,5 +1,6 @@
 package kg.ksucta.domain.user;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 import kg.ksucta.domain.Group;
@@ -44,6 +45,7 @@ public class User {
     private Dates dates;
 
     @OneToMany(fetch = FetchType.EAGER, mappedBy = "user")
+    @JsonBackReference
     private List<UserRole> roles;
 
     public User() { }
