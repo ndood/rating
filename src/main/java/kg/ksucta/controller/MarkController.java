@@ -15,18 +15,20 @@ public class MarkController {
     MarkService markService;
 
 
-    @RequestMapping(method = RequestMethod.GET, produces={"application/json"})
+    @RequestMapping(method = RequestMethod.GET)
     public List<Mark> getByCourse(@RequestParam("course") String course) throws JsonProcessingException {
 
         List<Mark> marksByCourse = markService.getByCourse(course);
         return marksByCourse;
     }
+    //produces={"application/json"}
 
-    @RequestMapping(value = "/user/group/groupname/{groupName}", method = RequestMethod.GET)
+
+    /*@RequestMapping(method = RequestMethod.GET)
     public List<Mark> getByGroupName(@PathVariable("groupName") String groupName){
         List<Mark> marksByGroupName = markService.getByGroupName(groupName);
         return marksByGroupName;
-    }
+    }*/
 
     /*@RequestMapping(value = "/{group}", method = RequestMethod.GET)
     public Mark getByGroup(@PathVariable("group") Group group){
