@@ -15,12 +15,41 @@ public class MarkController {
     MarkService markService;
 
 
-    @RequestMapping(method = RequestMethod.GET)
-    public List<Mark> getByCourse(@RequestParam("course") String course) throws JsonProcessingException {
-
+    @RequestMapping(value = "/GET/course/{course}", method = RequestMethod.GET)
+    public @ResponseBody List<Mark> getByCourse(@PathVariable("course") String course)  {
         List<Mark> marksByCourse = markService.getByCourse(course);
         return marksByCourse;
     }
+
+    @RequestMapping(value = "/GET/groupname/{groupname}", method = RequestMethod.GET)
+    public @ResponseBody List<Mark> getByGroupName(@PathVariable("groupname") String groupName) {
+        List<Mark> marksByGroupName = markService.getByGroupName(groupName);
+        return marksByGroupName;
+    }
+
+    @RequestMapping(value = "/GET/username/{username}", method = RequestMethod.GET)
+    public List<Mark> getByUserName(@PathVariable("username") String userName){
+        List<Mark> marksByUserName = markService.getByUserName(userName);
+        return marksByUserName;
+    }
+    @RequestMapping(value = "/GET/userid/{userId}", method = RequestMethod.GET)
+    public List<Mark> getByUserId(@PathVariable("userId") Long userId){
+        List<Mark> marksByUserId = markService.getByUserId(userId);
+        return marksByUserId;
+    }
+    @RequestMapping(value = "/GET/userid/{userid}&semester/{semester}", method = RequestMethod.GET)
+    public List<Mark> getByUserIdAndSemester(@PathVariable("userid") Long userId,
+                                             @PathVariable("semester") Long semester) {
+        List<Mark> marksByUserIdAndSemester = markService.getByUserIdAndSemester(userId, semester);
+        return marksByUserIdAndSemester;
+    }
+    @RequestMapping(value = "/GET/username/{username}&semester/{semester}", method = RequestMethod.GET)
+    public List<Mark> getByUserNameAndSemester(@PathVariable("username") String userName,
+                                               @PathVariable("semester") Long semester){
+        List<Mark> marksByUserNameAndSemester = markService.getByUserNameAndSemester(userName, semester);
+        return marksByUserNameAndSemester;
+    }
+
     //produces={"application/json"}
 
 
