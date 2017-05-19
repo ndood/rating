@@ -5,10 +5,12 @@ import kg.ksucta.domain.user.Role;
 import kg.ksucta.domain.user.User;
 import kg.ksucta.domain.user.UserRole;
 import kg.ksucta.repository.UserRoleRepository;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.Optional;
 
+@Service
 public class UserRoleServiceImpl implements UserRoleService {
     private final UserRoleRepository userRoleRepository;
 
