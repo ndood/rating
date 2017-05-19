@@ -48,4 +48,30 @@ public class MarkServiceImpl implements MarkService{
         Assert.hasText(groupName, "Group name must not be empty!!!");
         return markRepository.findByUserGroupGroupname(groupName);
     }
+
+    @Override
+    public List<Mark> getByUserName(String userName) {
+        Assert.hasText(userName, "UserName must not be empty!!!");
+        return markRepository.findByUser_Username(userName);
+    }
+
+    @Override
+    public List<Mark> getByUserId(Long userId) {
+        Assert.notNull(userId, "UserID must be not null!!!");
+        return markRepository.findByUser_Id(userId);
+    }
+
+    @Override
+    public List<Mark> getByUserIdAndSemester(Long userId, Long semester) {
+        Assert.notNull(semester, "Semester must be not null!!!");
+        Assert.notNull(userId, "UserID must be not null!!!");
+        return markRepository.findByUser_IdAndSemester(userId, semester);
+    }
+
+    @Override
+    public List<Mark> getByUserNameAndSemester(String userName, Long semester) {
+        Assert.hasText(userName, "UserName must not be empty!!!");
+        Assert.notNull(semester, "Semester must be not null!!!");
+        return markRepository.findByUser_UsernameAndSemester(userName, semester);
+    }
 }

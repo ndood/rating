@@ -8,9 +8,15 @@ import java.util.List;
 import java.util.Optional;
 
 public interface MarkService  {
+
+    List<Mark> getByCourse(String course);
+    List<Mark> getByGroupName(String groupName);
+    List<Mark> getByUserName(String userName);
+    List<Mark> getByUserId(Long userId);
+    List<Mark> getByUserIdAndSemester(Long userId, Long semester);
+    List<Mark> getByUserNameAndSemester(String userName, Long semester);
+
     List<Mark> getByUserGroup(Group userGroup);
     List<Mark> getBySemesterAndUser(Long semester, User user);
     List<Mark> getByUser(User user);
-    List<Mark> getByCourse(String course);
-    List<Mark> getByGroupName(String groupName);
 }
