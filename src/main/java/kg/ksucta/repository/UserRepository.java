@@ -13,6 +13,6 @@ public interface UserRepository extends CustomUserRepository, JpaRepository<User
     Optional<User> findByUsername(String username);
     Optional<User> findByFirstName(String firstName);
     Optional<User> findByLastName(String lastName);
-    Optional<User> findByGroup(Group group);
-    Optional<User> findByGroup_Course(String groupCourse);
+    List<User> findByGroup(Group group);
+    List<User> findByGroup_Course(String groupCourse);
 }

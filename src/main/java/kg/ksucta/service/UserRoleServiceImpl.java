@@ -17,13 +17,13 @@ public class UserRoleServiceImpl implements UserRoleService {
     }
 
     @Override
-    public Optional<UserRole> getByRole(Role role) {
+    public List<UserRole> getByRole(Role role) {
         Assert.notNull(role, "Role can not be empty!");
         return userRoleRepository.findByRole(role);
     }
 
     @Override
-    public Optional<UserRole> getByUser(User user) {
+    public List<UserRole> getByUser(User user) {
         Assert.notNull(user, "User can not be empty!");
         return userRoleRepository.findByUser(user);
     }

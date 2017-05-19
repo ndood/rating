@@ -8,8 +8,8 @@ import java.util.List;
 import java.util.Optional;
 
 public interface MarkService  {
-    Optional<Mark> getByUserGroup(Group userGroup);
+    List<Mark> getByUserGroup(Group userGroup);
     List<Mark> getBySemesterAndUser(Long semester, User user);
-    Optional<Mark> getByUser(User user);
-    Optional<Mark> getByUserGroupCourse(String course);
+    List<Mark> getByUser(User user);
+    List<Mark> getByUserGroupCourse(String course);
 }

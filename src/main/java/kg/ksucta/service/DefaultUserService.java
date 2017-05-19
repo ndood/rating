@@ -58,13 +58,13 @@ public class DefaultUserService implements UserService {
     }
 
     @Override
-    public Optional<User> getByGroup(Group group) {
+    public List<User> getByGroup(Group group) {
         Assert.notNull(group, "Group must not be null!!!");
         return this.userRepository.findByGroup(group);
     }
 
     @Override
-    public Optional<User> getByGroup_Course(String course) {
+    public List<User> getByGroup_Course(String course) {
         Assert.hasText(course, "Course must not be empty!!!");
         return this.userRepository.findByGroup_Course(course);
     }

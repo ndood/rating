@@ -19,7 +19,7 @@ public class MarkServiceImpl implements MarkService{
     }
 
     @Override
-    public Optional<Mark> getByUserGroup(Group userGroup) {
+    public List<Mark> getByUserGroup(Group userGroup) {
         Assert.notNull(userGroup, "Group must not be null!!!");
         return markRepository.findByUserGroup(userGroup);
     }
@@ -32,13 +32,13 @@ public class MarkServiceImpl implements MarkService{
     }
 
     @Override
-    public Optional<Mark> getByUser(User user) {
+    public List<Mark> getByUser(User user) {
         Assert.notNull(user, "User must not be null!!!");
         return markRepository.findByUser(user);
     }
 
     @Override
-    public Optional<Mark> getByUserGroupCourse(String course) {
+    public List<Mark> getByUserGroupCourse(String course) {
         Assert.hasText(course, "Course must not be empty!!!");
         return markRepository.findByUserGroupCourse(course);
     }
