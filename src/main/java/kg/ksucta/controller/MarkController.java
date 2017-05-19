@@ -16,13 +16,13 @@ public class MarkController {
 
 
     @RequestMapping(value = "/GET/course/{course}", method = RequestMethod.GET)
-    public @ResponseBody List<Mark> getByCourse(@PathVariable("course") String course)  {
+    public List<Mark> getByCourse(@PathVariable("course") String course)  {
         List<Mark> marksByCourse = markService.getByCourse(course);
         return marksByCourse;
     }
 
     @RequestMapping(value = "/GET/groupname/{groupname}", method = RequestMethod.GET)
-    public @ResponseBody List<Mark> getByGroupName(@PathVariable("groupname") String groupName) {
+    public List<Mark> getByGroupName(@PathVariable("groupname") String groupName) {
         List<Mark> marksByGroupName = markService.getByGroupName(groupName);
         return marksByGroupName;
     }
