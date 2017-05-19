@@ -8,7 +8,7 @@ import java.util.List;
 import java.util.Optional;
 
 public interface UserRepository extends CustomUserRepository, JpaRepository<User, Long> {
-    List<User> findByFirstNameAndLastName(String firstName, String lastName);
+    Optional<User> findByFirstNameAndLastName(String firstName, String lastName);
     Optional<User> findByEmail(String email);
     Optional<User> findByUsername(String username);
     Optional<User> findByFirstName(String firstName);

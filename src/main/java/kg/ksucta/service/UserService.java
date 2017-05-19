@@ -11,7 +11,7 @@ public interface UserService {
     Optional<User> getByUserName(String username);
     Optional<User> getByFirstName(String firstName);
     Optional<User> getByLastName(String lastName);
-    List<User> getByFirstNameAndLastName(String firstName, String lastName);
+    Optional<User> getByFirstNameAndLastName(String firstName, String lastName);
     List<User> getByGroup(Group group);
     List<User> getByGroup_Course(String course);
 }

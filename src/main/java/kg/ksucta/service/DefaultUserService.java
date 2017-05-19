@@ -45,10 +45,10 @@ public class DefaultUserService implements UserService {
     }
 
     @Override
-    public List<User> getByFirstNameAndLastName(String firstName, String lastName) {
+    public Optional<User> getByFirstNameAndLastName(String firstName, String lastName) {
         Assert.hasText(firstName, "FirstName must not be empty!!!");
         Assert.hasText(lastName, "LastName must not be empty!!!");
-        List<User> user = userRepository.findByFirstNameAndLastName(firstName, lastName);
+        Optional<User> user = userRepository.findByFirstNameAndLastName(firstName, lastName);
         return user;
         /*if(user.isPresent()){
             return user;
