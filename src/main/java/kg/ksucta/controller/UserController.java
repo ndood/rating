@@ -39,7 +39,7 @@ public class UserController {
         return userService.getByFirstNameAndLastName(firstName, lastName);
     }
 
-    @RequestMapping(value = "/get/group",method = RequestMethod.POST)
+    @RequestMapping(value = "/group",method = RequestMethod.POST)
     public List<User> getByLastName(Group group ){
 
         return userService.getByGroup(group);
