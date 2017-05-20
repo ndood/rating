@@ -19,32 +19,34 @@ public class UserController {
     @Autowired
     private UserService userService;
 
-    @RequestMapping(value = "/get/username",method = RequestMethod.GET)
-    public Optional<User> getByUserName(@RequestParam(value = "username") String userName){
+    @RequestMapping(value = "/username/{username}",method = RequestMethod.GET)
+    public Optional<User> getByUserName(@PathVariable("username") String userName){
         return userService.getByUserName(userName);
     }
 
-    @RequestMapping(value = "/get/firstname",method = RequestMethod.GET)
-    public Optional<User> getByFirstName(@RequestParam(value = "firstname") String firstName){
+    @RequestMapping(value = "/firstname/{firstname}",method = RequestMethod.GET)
+    public Optional<User> getByFirstName(@PathVariable("firstname") String firstName){
         return userService.getByFirstName(firstName);
     }
 
-    @RequestMapping(value = "/get/lastname",method = RequestMethod.GET)
-    public Optional<User> getByLastName(@RequestParam(value = "lastname") String lastName){
+    @RequestMapping(value = "/lastname/{lastname}",method = RequestMethod.GET)
+    public Optional<User> getByLastName(@PathVariable("lastname") String lastName){
         return userService.getByLastName(lastName);
     }
 
-    @RequestMapping(value = "/get/firstname-and-lastname",method = RequestMethod.GET)
+    @RequestMapping(value = "/firstname-and-lastname",method = RequestMethod.GET)
     public Optional<User>  getByFirstNameAndLastName(@RequestParam("firstname") String firstName,@RequestParam("lastname") String lastName){
         return userService.getByFirstNameAndLastName(firstName, lastName);
     }
 
-    @RequestMapping(value = "/get/group",method = RequestMethod.GET)
-    public List<User> getByLastName(@ModelAttribute Group group ){
+    @RequestMapping(value = "/get/group",method = RequestMethod.POST)
+    public List<User> getByLastName(Group group ){
+
         return userService.getByGroup(group);
     }
-    @RequestMapping(value = "/get/group-course",method = RequestMethod.GET)
-    public List<User> getByGroup_Course(@RequestParam(value = "group-course") String groupCourse){
+
+    @RequestMapping(value = "/group-course/{group-course}",method = RequestMethod.GET)
+    public List<User> getByGroup_Course(@PathVariable("group-course") String groupCourse){
         return userService.getByGroup_Course(groupCourse);
     }
 
