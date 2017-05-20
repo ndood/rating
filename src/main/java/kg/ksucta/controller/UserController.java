@@ -40,7 +40,7 @@ public class UserController {
     }
 
     @RequestMapping(value = "/group",method = RequestMethod.POST)
-    public List<User> getByLastName(Group group ){
+    public List<User> getByGroup(Group group ){
 
         return userService.getByGroup(group);
     }
