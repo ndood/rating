@@ -18,8 +18,14 @@ public class UserRoleServiceImpl implements UserRoleService {
         this.userRoleRepository = userRoleRepository;
     }
 
+//    @Override
+//    public List<UserRole> getByRole(Role role) {
+//        Assert.notNull(role, "Role can not be empty!");
+//        return userRoleRepository.findByRole(role);
+//    }
+
     @Override
-    public List<UserRole> getByRole(Role role) {
+    public Optional<UserRole> getByRole(Role role){
         Assert.notNull(role, "Role can not be empty!");
         return userRoleRepository.findByRole(role);
     }

@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Optional;
 
 @RestController
 @RequestMapping("/userRole")
@@ -28,17 +29,16 @@ public class UserRoleController {
         return userRolesByUser;
     }
 
-    @RequestMapping(value = "/userAndRole/{userAndRole", method = RequestMethod.GET)
+    @RequestMapping(value = "/userAndRole/{userAndRole}", method = RequestMethod.GET)
     public List<UserRole> getByUserAndRole(@PathVariable("user") User user, @PathVariable("role") Role role){
         List<UserRole> userRolesByUserAndRole = userRoleService.getByUserAndRole(user, role);
         return userRolesByUserAndRole;
     }
 
-
-    @RequestMapping(method = RequestMethod.GET)
-    public List<UserRole> getByRole(@RequestBody Role role) throws JsonProcessingException {
-        List<UserRole> userRolesByRole = userRoleService.getByRole(role);
-        return userRolesByRole;
+    @RequestMapping(value = "/userRole", method = RequestMethod.GET)
+    public UserRole getByRole(@RequestBody Role role) throws JsonProcessingException {
+        Optional<UserRole> userRolesByRole = userRoleService.getByRole(role);
+        return userRolesByRole.orElseGet(null);
     }
 
 //    @RequestMapping(method = RequestMethod.GET)

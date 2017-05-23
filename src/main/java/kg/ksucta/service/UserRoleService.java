@@ -8,8 +8,9 @@ import java.util.List;
 import java.util.Optional;
 
 public interface UserRoleService {
-    List<UserRole> getByRole(Role role);
+//    List<UserRole> getByRole(Role role);
     List<UserRole> getByUser(User user);
     List<UserRole> getByUserAndRole(User user, Role role);
     List<UserRole> getAll();
+    Optional<UserRole> getByRole(Role role);
 }
