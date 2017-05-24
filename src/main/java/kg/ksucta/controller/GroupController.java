@@ -16,14 +16,14 @@ public class GroupController {
     @Autowired
     GroupService groupService;
 
-    @RequestMapping(value ="/get/course",method = RequestMethod.GET)
-    public List<Group> getByCourse(@RequestParam("course") String course){
+    @RequestMapping(value ="/course/{course}",method = RequestMethod.GET)
+    public List<Group> getByCourse(@PathVariable("course") String course){
         List<Group> groupsByCourse = groupService.getByCourse(course);
         return groupsByCourse;
     }
 
-    @RequestMapping(value="/get/groupname",method = RequestMethod.GET)
-    public Optional<Group> getByGroupname(@RequestParam("groupname")String groupname){
+    @RequestMapping(value="/groupname/{groupname}",method = RequestMethod.GET)
+    public Optional<Group> getByGroupname(@PathVariable("groupname")String groupname){
         Optional<Group> groupByGroupname = groupService.getByGroupname(groupname);
         return groupByGroupname;
     }
