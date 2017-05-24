@@ -40,7 +40,11 @@ public class UserRoleController {
         Optional<UserRole> userRolesByRole = userRoleService.getByRole(role);
         return userRolesByRole.orElseGet(null);
     }
-
+    @RequestMapping(value = "username/{userName}", method = RequestMethod.GET)
+    public List<UserRole> getByUserName(@PathVariable("userName") String userName){
+        List<UserRole> userRoles = userRoleService.getByUserName(userName);
+        return userRoles;
+    }
 //    @RequestMapping(method = RequestMethod.GET)
 //    public List<UserRole> getByUser(@RequestParam("user") User user) throws JsonProcessingException {
 //        List<UserRole> userRolesByUser = userRoleService.getByUser(user);

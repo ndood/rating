@@ -13,4 +13,5 @@ public interface UserRoleService {
     List<UserRole> getByUserAndRole(User user, Role role);
     List<UserRole> getAll();
     Optional<UserRole> getByRole(Role role);
+    List<UserRole> getByUserName(String userName);
 }

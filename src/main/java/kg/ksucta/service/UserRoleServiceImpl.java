@@ -31,6 +31,12 @@ public class UserRoleServiceImpl implements UserRoleService {
     }
 
     @Override
+    public List<UserRole> getByUserName(String userName) {
+        Assert.hasText(userName, "SubjectName must not be empty");
+        return userRoleRepository.findByUser_Username(userName);
+    }
+
+    @Override
     public List<UserRole> getByUser(User user) {
         Assert.notNull(user, "User can not be empty!");
         return userRoleRepository.findByUser(user);
