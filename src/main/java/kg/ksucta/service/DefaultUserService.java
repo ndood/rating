@@ -68,4 +68,10 @@ public class DefaultUserService implements UserService {
         Assert.hasText(course, "Course must not be empty!!!");
         return this.userRepository.findByGroup_Course(course);
     }
+
+    @Override
+    public List<User> getByGroupName(String groupName) {
+        Assert.hasText(groupName, "Group Name must not be empty!!!");
+        return this.userRepository.findByGroup_Groupname(groupName);
+    }
 }

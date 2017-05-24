@@ -15,4 +15,6 @@ public interface UserRepository extends CustomUserRepository, JpaRepository<User
     Optional<User> findByLastName(String lastName);
     List<User> findByGroup(Group group);
     List<User> findByGroup_Course(String groupCourse);
+    List<User> findByGroup_Groupname(String groupName);
+
 }
