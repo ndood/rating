@@ -28,6 +28,11 @@ public class GroupServiceImpl implements GroupService {
         return groupRepository.findByGroupname(groupname);
     }
 
+    @Override
+    public List<Group> getAll() {
+        return groupRepository.findAll();
+    }
+
     /*@Override
     public Optional<Group> getByUser(User user) {
         Assert.notNull(user, "User must not be null!");

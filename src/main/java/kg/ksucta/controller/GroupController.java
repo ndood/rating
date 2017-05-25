@@ -16,6 +16,11 @@ public class GroupController {
     @Autowired
     GroupService groupService;
 
+    @RequestMapping(method = RequestMethod.GET)
+    public List<Group> getAll(){
+        List<Group> groups = groupService.getAll();
+        return groups;
+    }
     @RequestMapping(value ="/course/{course}",method = RequestMethod.GET)
     public List<Group> getByCourse(@PathVariable("course") String course){
         List<Group> groupsByCourse = groupService.getByCourse(course);

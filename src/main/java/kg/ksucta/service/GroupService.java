@@ -12,4 +12,6 @@ public interface GroupService {
     List<Group> getByCourse(String course);
     Optional<Group> getByGroupname(String groupname);
     //Optional<Group> getByUser(User user);
+    List<Group> getAll();
+
 }
