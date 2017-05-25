@@ -2,25 +2,25 @@
 insert into subject (subject_name) values ('Kyrgyz');
 insert into subject (subject_name) values ('Physics');
 insert into subject (subject_name) values ('Algebra and geometry');
-insert into subject (subject_name) values ('Basics of informatics');
-insert into subject (subject_name) values ('History');
+insert into subject (subject_name) values ('German');
 
--- 2 semester
+
+-- 2 semester +German
 insert into subject (subject_name) values ('Basics of programming');
 insert into subject (subject_name) values ('Mathematical analysis');
 insert into subject (subject_name) values ('Technical English');
-insert into subject (subject_name) values ('Philosophy');
 
--- 3 semester +Technical English
+
+-- 3 semester +German
 insert into subject (subject_name) values ('Computer architecture');
 insert into subject (subject_name) values ('Communication systems');
 insert into subject (subject_name) values ('Theoretical informatics');
 
--- 4 semester
+-- 4 semester +German
 insert into subject (subject_name) values ('Algorithms and data structures');
 insert into subject (subject_name) values ('DBI');
 insert into subject (subject_name) values ('System Programming');
-insert into subject (subject_name) values ('Applied Mathematics');
+
 
 -- 5 semester
 -- insert into subject (subject_name) values ('Web programming');
