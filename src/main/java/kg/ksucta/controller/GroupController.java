@@ -14,6 +14,10 @@ import java.util.Optional;
 @RestController
 @RequestMapping("/group")
 //@Controller("/group")
+
+/*сделал случайные коммит и пуш
+* теперь пытаюсь отменить изменения*/
+
 public class GroupController {
     @Autowired
     GroupService groupService;
