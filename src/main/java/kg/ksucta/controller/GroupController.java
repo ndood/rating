@@ -3,8 +3,10 @@ package kg.ksucta.controller;
 import kg.ksucta.domain.Group;
 import kg.ksucta.service.GroupService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
 import java.util.Optional;
@@ -21,6 +23,7 @@ public class GroupController {
         List<Group> groups = groupService.getAll();
         return groups;
     }
+
     @RequestMapping(value ="/course/{course}",method = RequestMethod.GET)
     public List<Group> getByCourse(@PathVariable("course") String course){
         List<Group> groupsByCourse = groupService.getByCourse(course);
